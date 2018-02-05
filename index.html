@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Настроение</title>
-  <script id="quotes_json" type="application/json">
-    [
-      {
-        "phrase": "Кукурузные хлопья - теперь без асбеста!",
-        "signature": "©Неизвестный маркетолог"
-      },
-      {
-        "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
-      },
-      {
-        "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
-      },
-      {
+  <head>
+    <title>Настроение</title>
+    <script id="quotes_json" type="application/json">
+      [
+        {
+          "phrase": "Кукурузные хлопья - теперь без асбеста!",
+          "signature": "©Неизвестный маркетолог"
+        },
+        {
+          "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
+        },
+        {
+          "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
+        },
+        {
         "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
-      }
-    ]
-  </script>
-</head>
-<body>
-</body>
+        }
+      ]
+    </script>
+  </head>
+  <body>
+    <p id="phrase"></p>
+    <p id="signature"></p>
+    <script type="text/javascript">
+      (function() {
+        var quotes_arr = JSON.parse(document.getElementById('quotes_json').innerHTML);
+        var index = Math.floor(Math.random() * quotes_arr.length);
+        var phrase = document.getElementById('phrase');
+        var signature = document.getElementById('signature');
+        if (quotes_arr[index].signature) {
+          phrase.innerHTML = quotes_arr[index].phrase;
+          signature.innerHTML = quotes_arr[index].signature;
+        } else {
+          var sign = "©Неизвестный автор";
+          phrase.innerHTML = quotes_arr[index].phrase;
+          signature.innerHTML = sign;
+        }
+      })();
+    </script>
+  </body>
 </html>
