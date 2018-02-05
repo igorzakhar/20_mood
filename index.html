@@ -2,14 +2,18 @@
 <html>
   <head>
     <title>Настроение</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bubble.css" type="text/css"/>
+    
     <script id="quotes_json" type="application/json">
       [
         {
           "phrase": "Кукурузные хлопья - теперь без асбеста!",
-          "signature": "©Неизвестный маркетолог"
+          "signature": "© Неизвестный маркетолог"
         },
         {
-          "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
+          "phrase": "Собираюсь жить вечно, пока всё идёт нормально",
+          "signature": "© Неизвестный генный инженер"
         },
         {
           "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
@@ -21,21 +25,31 @@
     </script>
   </head>
   <body>
-    <p id="phrase"></p>
-    <p id="signature"></p>
+
+    <div class="container mt-5 ">
+    <div class="row bubble pt-4 justify-content-center mx-auto">
+    <blockquote class="blockquote text-center">
+    <p class="mb-0 px-5" id="phrase"></p>
+    <footer class="blockquote-footer"><cite id="signature"></cite></footer>
+    </blockquote>
+    </div>
+    </div>
+<!--
+    <div class="container bubble text-center">
+      <p id="phrase"></p>
+      <p id="signature"></p>
+      </div>
+    </div>
+-->
     <script type="text/javascript">
       (function() {
-        var quotes_arr = JSON.parse(document.getElementById('quotes_json').innerHTML);
-        var index = Math.floor(Math.random() * quotes_arr.length);
-        var phrase = document.getElementById('phrase');
-        var signature = document.getElementById('signature');
-        if (quotes_arr[index].signature) {
-          phrase.innerHTML = quotes_arr[index].phrase;
-          signature.innerHTML = quotes_arr[index].signature;
+        var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML);
+        var index = Math.floor(Math.random() * quotes.length);
+        document.getElementById('phrase').innerHTML = quotes[index].phrase;
+        if (quotes[index].signature) {
+          document.getElementById('signature').innerHTML = quotes[index].signature;
         } else {
-          var sign = "©Неизвестный автор";
-          phrase.innerHTML = quotes_arr[index].phrase;
-          signature.innerHTML = sign;
+          document.getElementById('signature').innerHTML = "© Неизвестный автор";
         }
       })();
     </script>
