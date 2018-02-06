@@ -4,6 +4,7 @@
     <title>Настроение</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="css/bubble.css" type="text/css"/>
+    <link rel="stylesheet" href="css/quote_block.css" type="text/css"/>
     
     <script id="quotes_json" type="application/json">
       [
@@ -25,22 +26,14 @@
     </script>
   </head>
   <body>
-
-    <div class="container mt-5 ">
-    <div class="row bubble pt-4 justify-content-center mx-auto">
-    <blockquote class="blockquote text-center">
-    <p class="mb-0 px-5" id="phrase"></p>
-    <footer class="blockquote-footer"><cite id="signature"></cite></footer>
-    </blockquote>
+    <div class="container">
+      <blockquote class="quote-card">
+        <p id="phrase">
+        </p>
+        <cite id="signature">
+        </cite>
+      </blockquote>
     </div>
-    </div>
-<!--
-    <div class="container bubble text-center">
-      <p id="phrase"></p>
-      <p id="signature"></p>
-      </div>
-    </div>
--->
     <script type="text/javascript">
       (function() {
         var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML);
