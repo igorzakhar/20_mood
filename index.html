@@ -1,29 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Настроение</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bubble.css" type="text/css"/>
     <link rel="stylesheet" href="css/quote_block.css" type="text/css"/>
-    
-    <script id="quotes_json" type="application/json">
-      [
-        {
-          "phrase": "Кукурузные хлопья - теперь без асбеста!",
-          "signature": "© Неизвестный маркетолог"
-        },
-        {
-          "phrase": "Собираюсь жить вечно, пока всё идёт нормально",
-          "signature": "© Неизвестный генный инженер"
-        },
-        {
-          "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
-        },
-        {
-        "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
-        }
-      ]
-    </script>
   </head>
   <body>
     <div class="container">
@@ -34,17 +15,6 @@
         </cite>
       </blockquote>
     </div>
-    <script type="text/javascript">
-      (function() {
-        var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML);
-        var index = Math.floor(Math.random() * quotes.length);
-        document.getElementById('phrase').innerHTML = quotes[index].phrase;
-        if (quotes[index].signature) {
-          document.getElementById('signature').innerHTML = quotes[index].signature;
-        } else {
-          document.getElementById('signature').innerHTML = "© Неизвестный автор";
-        }
-      })();
-    </script>
+    <script src="js/get_random_joke.js"></script>
   </body>
 </html>
